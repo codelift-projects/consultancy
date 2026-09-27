@@ -77,8 +77,8 @@ export const QrTokenDemo = ({ onTriggerToast }) => {
       <div className="lg:col-span-7 space-y-3">
         
         {/* Category Filter Pills & Cart Count */}
-        <div className="flex items-center justify-between gap-1 overflow-x-auto pb-1 scrollbar-hide">
-          <div className="flex items-center gap-1">
+        <div className="flex flex-wrap items-center justify-between gap-2 pb-1">
+          <div className="flex items-center gap-1 overflow-x-auto scrollbar-hide py-0.5">
             {categories.map((cat) => (
               <button
                 key={cat}
@@ -94,7 +94,7 @@ export const QrTokenDemo = ({ onTriggerToast }) => {
             ))}
           </div>
 
-          <div className="flex items-center gap-1 px-2 py-1 bg-blue-50 border border-blue-200 text-blue-700 rounded-lg text-xs font-bold shrink-0 font-mono">
+          <div className="flex items-center gap-1 px-2.5 py-1 bg-blue-50 border border-blue-200 text-blue-700 rounded-lg text-xs font-bold shrink-0 font-mono">
             <ShoppingCart className="w-3 h-3" />
             <span>{totalCartCount} (₹{totalCartValue})</span>
           </div>
@@ -108,13 +108,11 @@ export const QrTokenDemo = ({ onTriggerToast }) => {
               className="p-2.5 bg-white border border-slate-200 rounded-xl shadow-2xs flex flex-col justify-between space-y-2 hover:border-slate-300 transition min-h-[72px]"
             >
               <div>
-                <div className="flex items-start justify-between gap-1">
-                  <span className="text-xs font-bold text-slate-900 leading-snug line-clamp-1">
-                    {dish.name}
-                  </span>
-                  <span className="text-xs font-mono font-bold text-slate-900 shrink-0">
-                    ₹{dish.price}
-                  </span>
+                <div className="text-xs font-bold text-slate-900 leading-snug line-clamp-1">
+                  {dish.name}
+                </div>
+                <div className="text-xs font-mono font-bold text-slate-700 mt-0.5">
+                  ₹{dish.price}
                 </div>
               </div>
 

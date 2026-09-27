@@ -7,12 +7,12 @@ export const BiReportDemo = () => {
     <div className="space-y-3">
       
       {/* 3 KPI Cards */}
-      <div className="grid grid-cols-3 gap-2">
+      <div className="grid grid-cols-3 gap-1.5 sm:gap-2">
         
         {/* Card 1: Revenue */}
-        <div className="p-3 bg-white rounded-xl border border-slate-200 shadow-2xs space-y-0.5">
+        <div className="p-2 sm:p-3 bg-white rounded-xl border border-slate-200 shadow-2xs space-y-0.5">
           <span className="text-[10px] text-slate-400 font-semibold block">Revenue</span>
-          <div className="text-sm sm:text-xl font-extrabold text-slate-900 font-mono">
+          <div className="text-xs sm:text-xl font-extrabold text-slate-900 font-mono">
             {BI_STATS.revenue}
           </div>
           <div className="text-[10px] text-emerald-600 font-semibold flex items-center gap-0.5">
@@ -21,18 +21,18 @@ export const BiReportDemo = () => {
         </div>
 
         {/* Card 2: Margin */}
-        <div className="p-3 bg-white rounded-xl border border-slate-200 shadow-2xs space-y-0.5">
+        <div className="p-2 sm:p-3 bg-white rounded-xl border border-slate-200 shadow-2xs space-y-0.5">
           <span className="text-[10px] text-slate-400 font-semibold block">Margin</span>
-          <div className="text-sm sm:text-xl font-extrabold text-slate-900 font-mono">
+          <div className="text-xs sm:text-xl font-extrabold text-slate-900 font-mono">
             {BI_STATS.margin}
           </div>
           <span className="text-[10px] text-slate-400 block">Food Cost</span>
         </div>
 
         {/* Card 3: Top Seller */}
-        <div className="p-3 bg-white rounded-xl border border-slate-200 shadow-2xs space-y-0.5">
+        <div className="p-2 sm:p-3 bg-white rounded-xl border border-slate-200 shadow-2xs space-y-0.5">
           <span className="text-[10px] text-slate-400 font-semibold block">Top Item</span>
-          <div className="text-xs sm:text-sm font-bold text-slate-900 truncate">
+          <div className="text-[11px] sm:text-sm font-bold text-slate-900 truncate">
             {BI_STATS.topSeller}
           </div>
           <span className="text-[10px] text-slate-400 block">58 Sold</span>

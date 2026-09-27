@@ -87,20 +87,19 @@ export const InventoryDemo = ({ onTriggerToast }) => {
               }`}
             >
               <div className="flex items-center justify-between gap-2 pb-1.5">
-                <div className="flex items-center gap-2 truncate">
+                <div className="flex items-center gap-2 min-w-0 flex-1">
                   <Package className={`w-3.5 h-3.5 shrink-0 ${isLow ? 'text-red-600' : 'text-slate-400'}`} />
                   <span className="text-xs sm:text-sm font-bold text-slate-900 truncate">{item.name}</span>
                 </div>
 
-                <div className="flex items-center gap-2 shrink-0">
-                  <span className={`text-xs font-mono font-bold px-2 py-0.5 rounded ${
-                    isLow ? 'bg-red-100 text-red-800' : 'bg-slate-100 text-slate-800'
-                  }`}>
-                    {item.stock} / {item.threshold} min
-                  </span>
-                  {isLow && (
-                    <span className="text-[10px] font-bold text-red-600 bg-red-100 px-1.5 py-0.5 rounded">
-                      Low
+                <div className="shrink-0 flex items-center">
+                  {isLow ? (
+                    <span className="text-[11px] font-mono font-bold px-2 py-0.5 rounded bg-red-100 text-red-700">
+                      {item.stock} left (Low)
+                    </span>
+                  ) : (
+                    <span className="text-[11px] font-mono font-bold px-2 py-0.5 rounded bg-slate-100 text-slate-700">
+                      {item.stock} {item.unit}
                     </span>
                   )}
                 </div>

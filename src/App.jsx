@@ -13,7 +13,21 @@ import { Toast } from './components/Toast';
 
 export function App() {
   const [activeDemoTab, setActiveDemoTab] = useState('inventory');
+  const [isDemoOpen, setIsDemoOpen] = useState(false);
   const [toasts, setToasts] = useState([]);
+
+  const handleOpenDemo = (tabId) => {
+    if (tabId) {
+      setActiveDemoTab(tabId);
+    }
+    setIsDemoOpen(true);
+    setTimeout(() => {
+      const el = document.getElementById('demos');
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth' });
+      }
+    }, 50);
+  };
 
   const handleTriggerToast = (type, title, message) => {
     const id = Date.now();
@@ -38,15 +52,17 @@ export function App() {
       {/* Main Single-Page Container */}
       <main className="flex-1 max-w-6xl w-full mx-auto px-4 pb-20 md:pb-12 space-y-1 sm:space-y-4">
         {/* 2) Hero */}
-        <Hero />
+        <Hero onOpenDemo={handleOpenDemo} />
 
         {/* 3) Core Engines Slider */}
-        <CoreEnginesSlider onSelectTab={setActiveDemoTab} />
+        <CoreEnginesSlider onSelectTab={handleOpenDemo} />
 
-        {/* 4) Live Demos (Tabbed) */}
+        {/* 4) Live Demos (Tabbed & Collapsible) */}
         <DemosSection
           activeTab={activeDemoTab}
           setActiveTab={setActiveDemoTab}
+          isOpen={isDemoOpen}
+          setIsOpen={setIsDemoOpen}
           onTriggerToast={handleTriggerToast}
         />
 
@@ -67,7 +83,7 @@ export function App() {
       <Footer />
 
       {/* 9) Mobile Sticky Bottom Bar */}
-      <MobileBottomBar onSelectTab={setActiveDemoTab} />
+      <MobileBottomBar />
     </div>
   );
 }

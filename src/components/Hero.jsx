@@ -2,7 +2,18 @@ import React from 'react';
 import { Sparkles, ArrowRight, MessageCircle, Zap, ShieldCheck, Phone } from 'lucide-react';
 import { ENGINEERS } from '../data/mockData';
 
-export const Hero = () => {
+export const Hero = ({ onOpenDemo }) => {
+  const handleTryDemo = (e) => {
+    e.preventDefault();
+    if (onOpenDemo) {
+      onOpenDemo('inventory');
+    }
+    const element = document.getElementById('demos');
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <section className="pt-4 sm:pt-14 pb-6 sm:pb-16 text-center">
       <div className="max-w-4xl mx-auto space-y-4 sm:space-y-6">
@@ -26,13 +37,13 @@ export const Hero = () => {
 
         {/* 2 CTAs */}
         <div className="pt-2 flex flex-col sm:flex-row items-center justify-center gap-3 max-w-md mx-auto">
-          <a
-            href="#demos"
+          <button
+            onClick={handleTryDemo}
             className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-xl text-sm shadow-sm hover:shadow-md transition min-h-[48px]"
           >
             <span>Try Live Demo</span>
             <ArrowRight className="w-4 h-4" />
-          </a>
+          </button>
 
           <a
             href={ENGINEERS.anurag.whatsappLink}

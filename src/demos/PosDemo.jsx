@@ -103,16 +103,12 @@ export const PosDemo = ({ onTriggerToast }) => {
                 <span className="text-xs font-mono font-bold text-slate-800">
                   ₹{item.price}
                 </span>
-                <span className="w-5 h-5 rounded-md bg-blue-50 text-blue-600 flex items-center justify-center font-bold text-xs group-hover:bg-blue-600 group-hover:text-white">
-                  +
+                <span className={`px-2 py-0.5 rounded-md font-bold text-[11px] flex items-center gap-1 transition ${
+                  inCart ? 'bg-blue-600 text-white shadow-2xs' : 'bg-blue-50 text-blue-600 group-hover:bg-blue-600 group-hover:text-white'
+                }`}>
+                  {inCart ? `✓ (${inCart.qty})` : '+ Add'}
                 </span>
               </div>
-
-              {inCart && (
-                <span className="absolute top-1.5 right-1.5 bg-blue-600 text-white text-[9px] font-bold px-1.5 py-0.2 rounded-full font-mono">
-                  {inCart.qty}
-                </span>
-              )}
             </button>
           );
         })}
